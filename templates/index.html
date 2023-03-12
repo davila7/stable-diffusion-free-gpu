@@ -1,29 +1,94 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}" />
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static',filename='icon.png') }}" />
-    <title>Stable Diffusion App</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Landing Page - Start Bootstrap Theme</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-  <h1>Stable Diffusion App</h1>
-    <p>Generate images with stable diffusion for free! Enter your prompt below and hit "Create" to generate an image (takes ~10 seconds per image).</p>
-    <p>Companion article: <a href="https://www.assemblyai.com/blog/build-a-free-stable-diffusion-app-with-a-gpu-backend/">Build a free Stable Diffusion app with a GPU backend</a> on the <href="https://www.assemblyai.com/blog/">AssemblyAI Blog</a>.</p>
-    <form action="\submit-prompt" method="post" id="submission-form">
-        <ul>
-            <li>
-              <label for="prompt">Prompt:</label>
-              <input type="text" id="prompt" name="prompt-input" />
-            </li>
-            <li class="button">
-                <button type="submit">Create</button>
-            </li>
-          </ul>
-    </form>
-    <img src="{{ generated_image|default("https://images.squarespace-cdn.com/content/v1/6213c340453c3f502425776e/0715034d-4044-4c55-9131-e4bfd6dd20ca/2_4x.png?format=512w", true) }}" class="mainImg" alt="Generated Image">
+  <!-- Masthead-->
+  <header class="masthead">
+    <div class="container position-relative">
+        <div class="row justify-content-center">
+            <div class="col-xl-6">
+                <div class="text-center text-white">
+                    <!-- Page heading-->
+                    <h1 class="mb-6">Compare Generative AI</h1>
+                    <form action="\submit-prompt" method="post" id="submission-form">
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control form-control-lg" id="prompt" name="prompt-input" type="text" placeholder="Prompt" data-sb-validations="required" />
+                                <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Prompt is required.</div>
+                            </div>
+                            <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
+                        </div>
+                        <!-- Submit success message-->
+                        <!---->
+                        <!-- This is what your users will see when the form-->
+                        <!-- has successfully submitted-->
+                        <div class="d-none" id="submitSuccessMessage">
+                            <div class="text-center mb-3">
+                                <div class="fw-bolder">Form submission successful!</div>
+                                <p>To activate this form, sign up at</p>
+                                <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                            </div>
+                        </div>
+                        <!-- Submit error message-->
+                        <!---->
+                        <!-- This is what your users will see when there is-->
+                        <!-- an error submitting the form-->
+                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Icons Grid-->
+<section class="features-icons bg-light text-center">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6">
+            <img src="{{ generated_image|default("https://images.squarespace-cdn.com/content/v1/6213c340453c3f502425776e/0715034d-4044-4c55-9131-e4bfd6dd20ca/2_4x.png?format=512w", true) }}" class="mainImg" alt="Generated Image">
+          </div>
+          <div class="col-lg-6">
+              <p>{{ generated_text|default("...") }}</p>
+          </div>
+      </div>
+  </div>
+</section>
+    
+<footer class="footer bg-light">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+              <ul class="list-inline mb-2">
+                  <li class="list-inline-item"><a href="https://medium.com/@dan.avila7">Medium</a></li>
+                  <li class="list-inline-item">⋅</li>
+                  <li class="list-inline-item"><a href="https://codegpt.co">Code GPT</a></li>
+                  <li class="list-inline-item">⋅</li>
+              </ul>
+          </div>
+          <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+              <ul class="list-inline mb-0">
+                  <li class="list-inline-item me-4">
+                      <a href="https://twitter.com/dani_avila7"><i class="bi-twitter fs-3"></i></a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</footer>
 </body>
 </html>

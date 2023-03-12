@@ -1,6 +1,10 @@
 # Flask GPU app
 
-Example app that demonstrates how to run a Flask app with a free GPU using Google Colab and ngrok.
+Run a Flask app with a free GPU using Google Colab and ngrok.
+
+# Google Colab
+
+
 
 
 ## Instructions
