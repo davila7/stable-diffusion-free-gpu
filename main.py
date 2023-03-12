@@ -42,7 +42,7 @@ def generate():
   generated_output = model.generate(input_ids, do_sample=True, temperature=0.5, max_length=512, num_return_sequences=1)
   generated_text = tokenizer.decode(generated_output[0], skip_special_tokens=True)
 
-  print("Sending image ...")
+  print("Sending image, generate text ...")
   return render_template('index.html', generated_image=img_str, generated_text=generated_text)
 
 if __name__ == '__main__':
