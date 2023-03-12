@@ -3,15 +3,15 @@ from flask import Flask, render_template, request
 
 import torch
 from diffusers import StableDiffusionPipeline
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import T5Tokenizer, FlaxT5ForConditionalGeneration
 
 import base64
 from io import BytesIO
 
 # Load model
-model_name = 'gpt2'
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+model_name = 'google/flan-t5-xxl'
+tokenizer = T5Tokenizer.from_pretrained(model_name)
+model = FlaxT5ForConditionalGeneration.from_pretrained(model_name)
 
 pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", revision="fp16", torch_dtype=torch.float16)
 pipe.to("cuda")
