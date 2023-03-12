@@ -11,7 +11,7 @@ from io import BytesIO
 # Load model
 model_name = 'google/flan-t5-small'
 tokenizer = T5Tokenizer.from_pretrained(model_name)
-model = FlaxT5ForConditionalGeneration.from_pretrained(model_name)
+model = FlaxT5ForConditionalGeneration.from_pretrained(model_name).to("cuda")
 
 pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", revision="fp16", torch_dtype=torch.float16)
 pipe.to("cuda")
@@ -38,8 +38,9 @@ def generate():
   img_str = base64.b64encode(buffered.getvalue())
   img_str = "data:image/png;base64," + str(img_str)[2:-1]
 
-  input_ids = tokenizer(prompt, return_tensors='pt').input_ids
+  input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to("cuda")
   generated_output = model.generate(input_ids, do_sample=True, temperature=0.5, max_length=512, num_return_sequences=1)
+  #generated_output = model.generate(input_ids, max_length=100)
   generated_text = tokenizer.decode(generated_output[0], skip_special_tokens=True)
 
   print("Sending image, generate text ...")
