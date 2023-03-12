@@ -40,7 +40,7 @@ def generate():
 
   #generate text
   input_ids = tokenizer(prompt, return_tensors="pt").input_ids.to("cuda")
-  generated_output = model.generate(input_ids, do_sample=True, temperature=0.5, max_length=512, num_return_sequences=1)
+  generated_output = model.generate(input_ids, do_sample=True, temperature=1.0, max_length=2500, num_return_sequences=1)
   generated_text = tokenizer.decode(generated_output[0], skip_special_tokens=True)
 
   print("Sending image and text ...")
