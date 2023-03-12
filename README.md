@@ -1,6 +1,6 @@
-# Flask GPU app
+# Free GPU App
 
-Run a Flask app with a free GPU using Google Colab and ngrok.
+Run a Flask app with Stable Diffusion and Google Flan T5 XL in a free GPU using Google Colab and ngrok.
 
 Compare Generative AI App
 
