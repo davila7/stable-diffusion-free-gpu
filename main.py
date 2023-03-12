@@ -9,7 +9,7 @@ import base64
 from io import BytesIO
 
 # Load model
-model_name = 'google/flan-t5-xxl'
+model_name = 'google/flan-t5-small'
 tokenizer = T5Tokenizer.from_pretrained(model_name)
 model = FlaxT5ForConditionalGeneration.from_pretrained(model_name)
 
