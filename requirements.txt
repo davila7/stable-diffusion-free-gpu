@@ -1,5 +1,6 @@
 torch>=1.4
 diffusers==0.10.2
+sentencepiece
 transformers
 scipy
 ftfy
