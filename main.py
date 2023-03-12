@@ -3,15 +3,14 @@ from flask import Flask, render_template, request
 
 import torch
 from diffusers import StableDiffusionPipeline
-from transformers import T5Tokenizer, FlaxT5ForConditionalGeneration
+from transformers import T5Tokenizer, T5ForConditionalGeneration
 
 import base64
 from io import BytesIO
 
 # Load model
-model_name = 'google/flan-t5-small'
-tokenizer = T5Tokenizer.from_pretrained(model_name)
-model = FlaxT5ForConditionalGeneration.from_pretrained(model_name).to("cuda")
+tokenizer = T5Tokenizer.from_pretrained("google/flan-t5-xl")
+model = T5ForConditionalGeneration.from_pretrained("google/flan-t5-xl").to("cuda")
 
 pipe = StableDiffusionPipeline.from_pretrained("runwayml/stable-diffusion-v1-5", revision="fp16", torch_dtype=torch.float16)
 pipe.to("cuda")
