@@ -25,8 +25,8 @@ def initial():
   return render_template('index.html')
 
 
-@app.route('/submit-prompt-image', methods=['POST'])
-def generate_image():
+@app.route('/submit-prompt', methods=['POST'])
+def generate():
   prompt = request.form['prompt-input']
   print(f"Generating an image of {prompt}")
 
@@ -38,20 +38,12 @@ def generate_image():
   img_str = base64.b64encode(buffered.getvalue())
   img_str = "data:image/png;base64," + str(img_str)[2:-1]
 
-  print("Sending image ...")
-  return render_template('index.html', generated_image=img_str)
-
-@app.route('/submit-prompt-text', methods=['POST'])
-def generate_text():
-  prompt = request.form['prompt-input']
-  print(f"Generating text for prompt: {prompt}")
-
   input_ids = tokenizer(prompt, return_tensors='pt').input_ids
   generated_output = model.generate(input_ids, do_sample=True, temperature=0.5, max_length=512, num_return_sequences=1)
   generated_text = tokenizer.decode(generated_output[0], skip_special_tokens=True)
 
-  print(f"Text generated: {generated_text}")
-  return render_template('index.html', generated_text=generated_text)
+  print("Sending image ...")
+  return render_template('index.html', generated_image=img_str, generated_text=generated_text)
 
 if __name__ == '__main__':
     app.run()
