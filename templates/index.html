@@ -14,47 +14,31 @@
     <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
+  <br>
   <!-- Masthead-->
-  <header class="masthead">
-    <div class="container position-relative">
-        <div class="row justify-content-center">
-            <div class="col-xl-6">
-                <div class="text-center text-white">
-                    <!-- Page heading-->
-                    <h1 class="mb-6">Compare Generative AI</h1>
-                    <form action="\submit-prompt-image" method="post" id="submission-form">
-                        <div class="row">
-                            <div class="col">
-                                <input class="form-control form-control-lg" id="prompt" name="prompt-input" type="text" placeholder="Prompt" data-sb-validations="required" />
-                                <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Prompt is required.</div>
-                            </div>
-                            <div class="col-auto"><button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button></div>
-                        </div>
-                        <!-- Submit success message-->
-                        <!---->
-                        <!-- This is what your users will see when the form-->
-                        <!-- has successfully submitted-->
-                        <div class="d-none" id="submitSuccessMessage">
-                            <div class="text-center mb-3">
-                                <div class="fw-bolder">Form submission successful!</div>
-                                <p>To activate this form, sign up at</p>
-                                <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                            </div>
-                        </div>
-                        <!-- Submit error message-->
-                        <!---->
-                        <!-- This is what your users will see when there is-->
-                        <!-- an error submitting the form-->
-                        <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                    </form>
-                </div>
-            </div>
+  <div class="container">
+    <section class="features-icons bg-light text-center">
+      <div class="row">
+        <div class="col-12">
+          <h1 class="mb-6">Compare Generative AI</h1>
         </div>
-    </div>
-</header>
+      </div>
+      <form action="\submit-prompt-image" method="post" id="submission-form">
+        <div class="row">
+        <div class="col-md-6">
+          <input class="form-control form-control-lg" id="prompt" name="prompt-input" type="text" placeholder="Prompt" data-sb-validations="required" />
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary btn-lg" id="submitButton" type="submit">Submit</button>
+        </div>
+        </div>
+      </form>
+    </section>
+  </div>
+  <br>
 <!-- Icons Grid-->
 <section class="features-icons bg-light text-center">
   <div class="container">
@@ -70,27 +54,5 @@
       </div>
   </div>
 </section>
-    
-<footer class="footer bg-light">
-  <div class="container">
-      <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
-              <ul class="list-inline mb-2">
-                  <li class="list-inline-item"><a href="https://medium.com/@dan.avila7">Medium</a></li>
-                  <li class="list-inline-item">⋅</li>
-                  <li class="list-inline-item"><a href="https://codegpt.co">Code GPT</a></li>
-                  <li class="list-inline-item">⋅</li>
-              </ul>
-          </div>
-          <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
-              <ul class="list-inline mb-0">
-                  <li class="list-inline-item me-4">
-                      <a href="https://twitter.com/dani_avila7"><i class="bi-twitter fs-3"></i></a>
-                  </li>
-              </ul>
-          </div>
-      </div>
-  </div>
-</footer>
 </body>
 </html>
